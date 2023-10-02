@@ -1,0 +1,21 @@
+= form_with(model: @department) do |form|
+  section.modal-card-body
+    - if @department.errors.any?
+      div style="color: red"
+        h2 = "#{pluralize(@department.errors.count, "error")} prohibited this department from being saved:"
+        ul
+          - @department.errors.each do |error|
+            li = error.full_message
+
+    .field
+      = form.label :name, class: 'label'
+      .control
+        = form.text_field :name, class: 'input'
+
+    .field
+      = form.label :status, class: 'label'
+      .control
+        = form.select :status, [%w[Ativo active], %w[Inativo inactive]], {}, { class: 'select' }
+
+  footer.modal-card-foot
+    = form.submit 'Criar Departamento', class: 'button is-primary', data: { action: "click->bm-modal#submitEnd" }

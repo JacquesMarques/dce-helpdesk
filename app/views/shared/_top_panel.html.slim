@@ -1,0 +1,22 @@
+.columns
+  .column.is-2.has-text-centered.is-wide
+    .box.box-profile
+      = link_to '#', class: 'image is-64x64 m-auto'
+        = image_tag '/assets/person/1.jpg', alt: 'profile', class: 'is-rounded'
+      p Administrador
+      = link_to 'Minha conta', '#', class: 'is-size-7'
+      '  |
+      = link_to 'Fechar sessão', '#', class: 'is-size-7'
+  .column
+    .card
+      .card-content
+        = render 'shared/top_buttons'
+        nav class="navbar" role="navigation" aria-label="main navigation"
+          a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu"
+            span aria-hidden="true"
+            span aria-hidden="true"
+            span aria-hidden="true"
+          #navbarMenu class="navbar-menu"
+            = render 'shared/top_menu_tickets' if controller_name == 'tickets'
+            = render 'shared/top_menu_staff' if controller_name == 'staff' || controller_name == 'departments'
+
