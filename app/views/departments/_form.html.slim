@@ -18,4 +18,4 @@
         = form.select :status, [%w[Ativo active], %w[Inativo inactive]], {}, { class: 'select' }
 
   footer.modal-card-foot
-    = form.submit 'Criar Departamento', class: 'button is-primary', data: { action: "click->bm-modal#submitEnd" }
+    = form.submit class: 'button is-primary', data: { action: "click->bm-modal#submitEnd" }

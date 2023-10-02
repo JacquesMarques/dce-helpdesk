@@ -42,9 +42,14 @@ class DepartmentsController < ApplicationController
   def update
     respond_to do |format|
       if @department.update(department_params)
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(
+          "department_row_#{@department.id}", partial: 'departments/department',
+          locals: { department: @department }) }
         format.html { redirect_to department_url(@department), notice: "Department was successfully updated." }
         format.json { render :show, status: :ok, location: @department }
       else
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(
+          'remote_modal', partial: 'departments/form_modal', locals: { department: @department }) }
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @department.errors, status: :unprocessable_entity }
       end
