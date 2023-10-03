@@ -61,6 +61,7 @@ class DepartmentsController < ApplicationController
     @department.destroy
 
     respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.remove("department_row_#{@department.id}") }
       format.html { redirect_to departments_url, notice: "Department was successfully destroyed." }
       format.json { head :no_content }
     end

@@ -6,4 +6,6 @@ tr id="department_row_#{department.id}"
   td
     = link_to 'View', department, data: { controller: "department-modal" }, class: 'button is-info is-small mr-1'
     = link_to 'Edit', edit_department_path(department), data: { controller: "department-modal" }, class: 'button is-primary is-small mr-1'
-    = link_to 'Delete', department, method: :delete, data: { configm: 'Are you sure?'}, class: 'button is-danger is-small mr-1'
+    = link_to 'Delete', department,
+            data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want delete this department?' },
+            class: 'button is-danger is-small mr-1'
