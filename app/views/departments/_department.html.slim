@@ -4,6 +4,6 @@ tr id="department_row_#{department.id}"
   td
     = department.status
   td
-    = link_to 'View', department, class: 'button is-info is-small mr-1'
+    = link_to 'View', department, data: { controller: "department-modal" }, class: 'button is-info is-small mr-1'
     = link_to 'Edit', edit_department_path(department), data: { controller: "department-modal" }, class: 'button is-primary is-small mr-1'
     = link_to 'Delete', department, method: :delete, data: { configm: 'Are you sure?'}, class: 'button is-danger is-small mr-1'
