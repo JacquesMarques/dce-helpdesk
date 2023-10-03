@@ -3,7 +3,7 @@
     .modal-background
     .modal-card
       header.modal-card-head
-        p.modal-card-title Departamento
+        p.modal-card-title
+          = modal_title
         = button_tag "Close", type: "button", class: "delete", data: { action: "bm-modal#close" }
-      section.modal-card-body
-        = render "form", department: department
+      = render partial_name, department: department
