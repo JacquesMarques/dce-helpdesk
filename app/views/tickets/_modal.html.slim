@@ -1,0 +1,9 @@
+= turbo_frame_tag :remote_modal, tagret: :_top do
+  .modal data-controller="bm-modal"
+    .modal-background
+    .modal-card
+      header.modal-card-head
+        p.modal-card-title
+          = modal_title
+        = button_tag "Close", type: "button", class: "delete", data: { action: "bm-modal#close" }
+      = render partial_name, ticket: ticket

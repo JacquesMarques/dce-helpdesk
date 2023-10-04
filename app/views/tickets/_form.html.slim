@@ -1,0 +1,26 @@
+= form_with(model: @ticket) do |form|
+  section.modal-card-body
+    - if @ticket.errors.any?
+      div style="color: red"
+        h2 = "#{pluralize(@ticket.errors.count, "error")} prohibited this ticket from being saved:"
+        ul
+          - @ticket.errors.each do |error|
+            li = error.full_message
+
+    .field
+      = form.label :title, class: 'label'
+      .control
+        = form.text_field :title, class: 'input'
+
+    .field
+      = form.label :content, class: 'label'
+      .control
+        = form.text_area :content, cols: 80, rows: 3, class: 'tinymce'
+
+    .field
+      = form.label :status, class: 'label'
+      .control
+        = form.select :status, [%w[Ativo active], %w[Inativo inactive]], {}, { class: 'select' }
+
+  footer.modal-card-foot
+    = form.submit class: 'button is-primary', data: { action: "click->bm-modal#submitEnd" }

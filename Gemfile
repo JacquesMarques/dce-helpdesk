@@ -75,3 +75,4 @@ end
 
 gem "cssbundling-rails"
 gem 'slim-rails', '~> 3.6', '>= 3.6.2'
+gem 'tinymce-rails', '~> 6.7'

@@ -1,0 +1,17 @@
+p style="color: green" = notice
+
+h1.title Tickets
+
+= link_to "Novo Ticket", new_ticket_path, class: 'button is-primary is-small my-3',
+        data: { controller: "modal" }
+
+table.table.is-fullwidth.is-narrow.is-hoverable.is-striped
+  thead
+    tr
+      th Título
+      th Departamento
+      th Status
+      th Ações
+  tbody id="ticket_list"
+    - @tickets.each do |ticket|
+      = render 'ticket', ticket: ticket
