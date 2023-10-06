@@ -1,0 +1,13 @@
+.columns.is-centered
+  .column.is-5-tablet.is-4-desktop.is-4-widescreen
+    .box
+      p.title.has-text-dark Forgot your password?
+      = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .field
+          = f.label :email
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'input'
+        .actions
+          = f.submit "Send me reset password instructions", class: 'button is-primary is-fullwidth'
+
+      = render "devise/shared/links"

@@ -1,0 +1,28 @@
+.columns.is-centered
+  .column.is-5-tablet.is-4-desktop.is-4-widescreen
+    .box
+      - flash.each do |type, msg|
+        - if msg != true
+          .notification.is-danger
+            = msg
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .field
+          = f.label :email
+          .control.has-icons-left
+            = f.email_field :email, autofocus: true, class: 'input', autocomplete: "email", required: ""
+            span class="icon is-small is-left"
+              i class="fa fa-envelope"
+        .field
+          = f.label :password
+          .control.has-icons-left
+            = f.password_field :password,  autocomplete: "current-password", class: 'input', required: ""
+            span class="icon is-small is-left"
+              i class="fa fa-lock"
+        - if devise_mapping.rememberable?
+          .field
+            = f.label :remember_me, class: 'checkbox'
+              = f.check_box :remember_me
+              '&nbsp; Remember me
+        .actions
+          = f.submit "Login", class: 'button is-primary is-fullwidth'
+        = render "devise/shared/links"

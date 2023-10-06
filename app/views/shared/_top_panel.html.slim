@@ -6,7 +6,7 @@
       p Administrador
       = link_to 'Minha conta', '#', class: 'is-size-7'
       '  |
-      = link_to 'Fechar sessão', '#', class: 'is-size-7'
+      = link_to 'Fechar sessão', destroy_user_session_path, data: { turbo_method: :delete }, class: 'is-size-7'
   .column
     .card
       .card-content
