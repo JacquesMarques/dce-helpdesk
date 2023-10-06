@@ -15,12 +15,20 @@
     .field
       = form.label :content, class: 'label'
       .control
-        = form.text_area :content, cols: 80, rows: 3, class: 'tinymce'
+        = form.text_area :content, cols: 80, rows: 3, class: 'textarea'
 
-    .field
-      = form.label :status, class: 'label'
-      .control
-        = form.select :status, [%w[Ativo active], %w[Inativo inactive]], {}, { class: 'select' }
+    .columns
+      .column
+        .field
+          = form.label :department_id, class: 'label'
+          .control
+            = form.collection_select :department_id, Department.order(:name).all, :id, :name, {prompt: "Select a department"}, { class: 'select' }
+
+      .column
+        .field
+          = form.label :status, class: 'label'
+          .control
+            = form.select :status, [%w[Ativo active], %w[Inativo inactive]], {}, { class: 'select' }
 
   footer.modal-card-foot
     = form.submit class: 'button is-primary', data: { action: "click->bm-modal#submitEnd" }
