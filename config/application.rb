@@ -23,5 +23,7 @@ module Dce
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.active_support.cache_format_version = 7.1
   end
 end
