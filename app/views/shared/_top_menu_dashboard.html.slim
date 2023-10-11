@@ -1,0 +1,4 @@
+.column.is-2
+  = link_to 'Last Activity', '#', class: "navbar-item #{'is-active' if controller_name == 'home' && action_name == 'index'}"
+.column.is-2
+  = link_to 'Statistics', '#', class: "navbar-item #{'is-active' if controller_name == 'home' && action_name == 'statistics'}"

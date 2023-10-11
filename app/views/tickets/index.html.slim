@@ -8,10 +8,11 @@ h1.title Tickets
 table.table.is-fullwidth.is-narrow.is-hoverable.is-striped
   thead
     tr
-      th Título
-      th Departamento
+      th Title
+      th Department
+      th User
       th Status
-      th Ações
+      th Action
   tbody id="ticket_list"
     - @tickets.each do |ticket|
       = render 'ticket', ticket: ticket

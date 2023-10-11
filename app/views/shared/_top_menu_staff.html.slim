@@ -1,2 +1,4 @@
-= link_to 'Users', departments_path, class: "navbar-item #{'is-active' if controller_name == 'users'}"
-= link_to 'Departments', departments_path, class: "navbar-item #{'is-active' if controller_name == 'departments'}"
+.column.is-2
+  = link_to 'Users', departments_path, class: "navbar-item #{'is-active' if controller_name == 'users'}"
+.column.is-2
+  = link_to 'Departments', departments_path, class: "navbar-item #{'is-active' if controller_name == 'departments'}"

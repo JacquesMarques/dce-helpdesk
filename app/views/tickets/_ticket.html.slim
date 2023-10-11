@@ -4,6 +4,8 @@ tr id="ticket_row_#{ticket.id}"
   td
     = ticket.department.name
   td
+    = ticket.user.name
+  td
     = ticket.status
   td
     = link_to 'View', ticket, data: { controller: "modal" }, class: 'button is-info is-small mr-1'
