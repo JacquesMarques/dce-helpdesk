@@ -21,7 +21,7 @@ class TicketsController < ApplicationController
 
   # POST /tickets or /tickets.json
   def create
-    @ticket = Ticket.new(ticket_params)
+    @ticket = Ticket.new(ticket_params.merge(user: current_user))
 
     respond_to do |format|
       if @ticket.save
@@ -31,7 +31,8 @@ class TicketsController < ApplicationController
         format.json { render :show, status: :created, location: @ticket }
       else
         format.turbo_stream { render turbo_stream: turbo_stream.replace(
-          'remote_modal', partial: 'tickets/form_modal', locals: { ticket: @ticket }) }
+          'remote_modal', partial: 'tickets/modal',
+          locals: { ticket: @ticket, modal_title: 'Create Ticket', partial_name: 'form' }) }
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @ticket.errors, status: :unprocessable_entity }
       end
@@ -49,7 +50,8 @@ class TicketsController < ApplicationController
         format.json { render :show, status: :ok, location: @ticket }
       else
         format.turbo_stream { render turbo_stream: turbo_stream.replace(
-          'remote_modal', partial: 'tickets/form_modal', locals: { ticket: @ticket }) }
+          'remote_modal', partial: 'tickets/modal',
+          locals: { ticket: @ticket, modal_title: 'Edit Ticket', partial_name: 'form' }) }
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @ticket.errors, status: :unprocessable_entity }
       end
@@ -75,6 +77,6 @@ class TicketsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ticket_params
-      params.require(:ticket).permit(:name, :content, :department_id, :status)
+      params.require(:ticket).permit(:title, :content, :department_id, :status)
     end
 end

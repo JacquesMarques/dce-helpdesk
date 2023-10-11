@@ -1,10 +1,10 @@
-= form_with(model: @department) do |form|
+= form_with(model: @user) do |form|
   section.modal-card-body
-    - if @department.errors.any?
+    - if @user.errors.any?
       div style="color: red"
-        h2 = "#{pluralize(@department.errors.count, "error")} prohibited this department from being saved:"
+        h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
         ul
-          - @department.errors.each do |error|
+          - @user.errors.each do |error|
             li = error.full_message
 
     .field
@@ -15,7 +15,7 @@
     .field
       = form.label :status, class: 'label'
       .control
-        = form.select :status, enum_options_for_select(Department, :status), {}, { class: 'select' }
+        = form.select :status, enum_options_for_select(User, :status), {}, { class: 'select' }
 
   footer.modal-card-foot
     = form.submit class: 'button is-primary', data: { action: "click->bm-modal#submitEnd" }

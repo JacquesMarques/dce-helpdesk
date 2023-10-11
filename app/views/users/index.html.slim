@@ -1,0 +1,17 @@
+p style="color: green" = notice
+
+h1.title Users
+
+= link_to "New User", new_user_path, class: 'button is-primary is-small my-3',
+        data: { controller: "modal" }
+
+table.table.is-fullwidth.is-narrow.is-hoverable.is-striped
+  thead
+    tr
+      th I18n.t('activerecord.attributes.user.name')
+      th Email
+      th Status
+      th Actions
+  tbody id="user_list"
+    - @users.each do |user|
+      = render 'user', user: user

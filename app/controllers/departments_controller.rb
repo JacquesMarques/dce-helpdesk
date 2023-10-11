@@ -31,7 +31,8 @@ class DepartmentsController < ApplicationController
         format.json { render :show, status: :created, location: @department }
       else
         format.turbo_stream { render turbo_stream: turbo_stream.replace(
-          'remote_modal', partial: 'departments/form_modal', locals: { department: @department }) }
+          'remote_modal', partial: 'departments/modal',
+          locals: { department: @department, modal_title: 'Create Department', partial_name: 'form' }) }
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @department.errors, status: :unprocessable_entity }
       end
@@ -49,7 +50,8 @@ class DepartmentsController < ApplicationController
         format.json { render :show, status: :ok, location: @department }
       else
         format.turbo_stream { render turbo_stream: turbo_stream.replace(
-          'remote_modal', partial: 'departments/form_modal', locals: { department: @department }) }
+          'remote_modal', partial: 'departments/modal',
+          locals: { department: @department, modal_title: 'Edit Department', partial_name: 'form' }) }
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @department.errors, status: :unprocessable_entity }
       end

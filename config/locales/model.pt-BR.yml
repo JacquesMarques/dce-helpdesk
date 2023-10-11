@@ -1,0 +1,37 @@
+pt-BR:
+  activerecord:
+    models:
+      department: 'Departamento'
+      ticket: 'Ticket'
+      user: 'Usuário'
+    attributes:
+      department:
+        name: 'Nome'
+        status: 'Status'
+      ticket:
+        title: 'Título'
+        content: 'Conteúdo'
+        department: 'Departamento'
+        user: 'Usuário'
+        status: 'Status'
+      user:
+        password: 'Senha'
+        password_confirmation: 'Confirmar Senha'
+        status: 'Status'
+        role: 'Regra'
+        name: 'Nome'
+        email: 'Email'
+    enums:
+      department:
+        statuses:
+          active: 'Ativo'
+          inactive: 'Inativo'
+      ticket:
+        statuses:
+          active: 'Ativo'
+          inactive: 'Inativo'
+      user:
+        statuses:
+          active: 'Ativo'
+          inactive: 'Inativo'
+
