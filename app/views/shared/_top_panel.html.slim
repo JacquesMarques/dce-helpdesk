@@ -20,5 +20,6 @@
             .columns
               = render 'shared/top_menu_dashboard' if controller_name == 'home'
               = render 'shared/top_menu_tickets' if controller_name == 'tickets'
+              = render 'shared/top_menu_users' if controller_name == 'users'
               = render 'shared/top_menu_staff' if controller_name == 'staff' || controller_name == 'departments'
 

@@ -1,19 +1,19 @@
 .columns
   .column.is-2.has-text-centered.is-wide
     = link_to root_path, class: 'is-size-6' do
-      .box.box-active
+      div class=(controller_name == 'home' ? 'box box-active' : 'box')
         p
           i class="fa fa-tachometer" aria-hidden="true"
         'Dashboard
   .column.is-2.has-text-centered.is-wide
     = link_to tickets_path, class: 'is-size-6' do
-      .box.box-link
+      div class=(controller_name == 'tickets' ? 'box box-active' : 'box')
         p
           i class="fa fa-ticket" aria-hidden="true"
         'Tickets
   .column.is-2.has-text-centered.is-wide
     = link_to users_path, class: 'is-size-6' do
-      .box.box-link
+      div class=(controller_name == 'users' ? 'box box-active' : 'box')
         p
           i class="fa fa-users" aria-hidden="true"
         'Usuários
@@ -25,7 +25,7 @@
         'Artigos
   .column.is-2.has-text-centered.is-wide
     = link_to '#', class: 'is-size-6' do
-      .box.box-link
+      div class=(controller_name == 'staffs' ? 'box box-active' : 'box')
         p
           i class="fa fa-user-circle-o" aria-hidden="true"
         'Membros
