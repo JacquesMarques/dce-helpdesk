@@ -53,6 +53,14 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  # Easily generate fake data
+  gem 'faker', '~> 3.1', '>= 3.1.1'
+  # provides integration between factory_bot and rails 5.0 or newer
+  gem 'factory_bot_rails', '~> 6.2'
+  # rspec-rails is a testing framework for Rails 5+.
+  gem 'rspec-rails', '~> 6.0', '>= 6.0.3'
+  # Record your test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests.
+  gem 'rubocop', '~> 1.52', '>= 1.52.1'
 end
 
 group :development do
@@ -70,6 +78,12 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  # Strategies for cleaning databases. Can be used to ensure a clean slate for testing.
+  gem 'database_cleaner', '~> 2.0', '>= 2.0.2'
+  # Code coverage for Ruby
+  gem 'simplecov', '~> 0.22.0', require: false
+  # Simple one-liner tests for common Rails functionality
+  gem 'shoulda-matchers', '~> 5.3'
 end
 
 gem 'devise', '~> 4.9', '>= 4.9.2'
