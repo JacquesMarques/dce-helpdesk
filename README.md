@@ -1,24 +1,21 @@
-# README
+# DCE HelpDesk
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a sample application made with RAILS 7.1 using Hotwire technologies. 
+It is a help desk system where you can create a user and create support tickts for departaments
+and the staff team can resolve the tickets e give an answer to the users.
 
-Things you may want to cover:
+The application was made using Turbo Stream and Stylus (Hotwire) to create a dynamic interface  
+without use of Javascript.
 
-* Ruby version
+## Requirements: 
 
-* System dependencies
+* Ruby 3.2.2
+* Rails 7.1
+* PostgreSql 12+
+* Turbo
+* Stylus
+* Bulma
 
-* Configuration
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
