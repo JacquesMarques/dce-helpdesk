@@ -76,8 +76,11 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
+  gem 'capybara', '~> 3.39', '>= 3.39.2'
+  # Selenium is a browser automation tool for automated testing of webapps and more
+  gem 'selenium-webdriver', '~> 4.14'
+  # Automatically create snapshots when Cucumber steps fail with Capybara and Rails
+  gem 'capybara-screenshot', '~> 1.0', '>= 1.0.26'
   # Strategies for cleaning databases. Can be used to ensure a clean slate for testing.
   gem 'database_cleaner', '~> 2.0', '>= 2.0.2'
   # Code coverage for Ruby

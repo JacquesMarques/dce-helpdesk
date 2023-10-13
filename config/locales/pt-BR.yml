@@ -243,6 +243,7 @@ pt-BR:
     view: 'Ver'
     edit: 'Alterar'
     delete: 'Apagar'
+    welcome_message: 'Seja bem vindo'
   simple_calendar:
     previous: 'Anterior'
     next: 'Próximo'

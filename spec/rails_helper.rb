@@ -8,8 +8,11 @@ ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?
+
+require 'capybara/rspec'
+require 'capybara/rails'
+require 'capybara-screenshot/rspec'
 require 'rspec/rails'
-require 'webmock/rspec'
 require 'database_cleaner'
 
 
@@ -28,7 +31,7 @@ require 'database_cleaner'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
 
 
 # Checks for pending migrations and applies them before tests are run.
@@ -47,6 +50,17 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
+
+  config.include Features::CapybaraHelpers, type: :feature
+  Capybara.configure do |config|
+    config.server_port = 9887 + ENV['TEST_ENV_NUMBER'].to_i
+    config.javascript_driver = :selenium_chrome_headless
+    # config.default_driver = :selenium_chrome_headless
+
+    # render html screenshots with assets, a dev server must be running to work
+    config.asset_host = 'http://127.0.0.1:3000'
+  end
+
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
