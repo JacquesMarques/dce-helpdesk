@@ -2,10 +2,14 @@ tr id="user_row_#{user.id}"
   td
     = user.name
   td
-    = user.status
+    = user.email
   td
-    = link_to 'View', user, data: { controller: "modal" }, class: 'button is-info is-small mr-1'
-    = link_to 'Edit', edit_user_path(user), data: { controller: "modal" }, class: 'button is-primary is-small mr-1'
-    = link_to 'Delete', user,
-            data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want delete this user?' },
+    = User.human_attribute_name("status.#{user.status}")
+  td
+    = User.human_attribute_name("role.#{user.role}")
+  td
+    = link_to I18n.t('views.view'), user, data: { controller: "modal" }, class: 'button is-info is-small mr-1'
+    = link_to I18n.t('views.edit'), edit_user_path(user), data: { controller: "modal" }, class: 'button is-primary is-small mr-1'
+    = link_to I18n.t('views.delete'), user,
+            data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want delete this register?' },
             class: 'button is-danger is-small mr-1'

@@ -154,6 +154,14 @@ pt-BR:
       create: Criar %{model}
       submit: Salvar %{model}
       update: Atualizar %{model}
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: ""
+          one: "Mostrando <b>1</b> %{entry_name}"
+          other: "Total de <b>%{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Mostrando %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> no total."
   number:
     currency:
       format:
@@ -231,15 +239,10 @@ pt-BR:
       previous: "&lsaquo; Anterior"
       next: "Próxima &rsaquo;"
       truncate: "&hellip;"
-  helpers:
-    page_entries_info:
-      one_page:
-        display_entries:
-          zero: ""
-          one: "Mostrando <b>1</b> %{entry_name}"
-          other: "Total de <b>%{count}</b> %{entry_name}"
-      more_pages:
-        display_entries: "Mostrando %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> no total."
+    actions: 'Açoes'
+    view: 'Ver'
+    edit: 'Alterar'
+    delete: 'Apagar'
   simple_calendar:
     previous: 'Anterior'
     next: 'Próximo'

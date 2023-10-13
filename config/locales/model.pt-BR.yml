@@ -3,17 +3,25 @@ pt-BR:
     models:
       department: 'Departamento'
       ticket: 'Ticket'
-      user: 'Usuário'
+      user:
+        one: 'Usuário'
+        others: 'Usuários'
     attributes:
       department:
         name: 'Nome'
         status: 'Status'
+      department/status:
+        active: 'Ativo'
+        inactive: 'Inativo'
       ticket:
         title: 'Título'
         content: 'Conteúdo'
         department: 'Departamento'
         user: 'Usuário'
         status: 'Status'
+      ticket/status:
+        active: 'Ativo'
+        inactive: 'Inativo'
       user:
         password: 'Senha'
         password_confirmation: 'Confirmar Senha'
@@ -21,17 +29,10 @@ pt-BR:
         role: 'Regra'
         name: 'Nome'
         email: 'Email'
-    enums:
-      department:
-        statuses:
-          active: 'Ativo'
-          inactive: 'Inativo'
-      ticket:
-        statuses:
-          active: 'Ativo'
-          inactive: 'Inativo'
-      user:
-        statuses:
-          active: 'Ativo'
-          inactive: 'Inativo'
+      user/status:
+        active: 'Ativo'
+        inactive: 'Inativo'
+      user/role:
+        user: 'Usuário'
+        admin: 'Administrador'
 
